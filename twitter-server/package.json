@@ -9,11 +9,13 @@
     "build": "tsc -p ."
   },
   "devDependencies": {
+    "prisma": "^5.20.0",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.6.2"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
+    "@prisma/client": "5.20.0",
     "body-parser": "^1.20.3",
     "express": "^4.21.0",
     "graphql": "^16.9.0"

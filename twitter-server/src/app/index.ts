@@ -12,17 +12,19 @@ export async function initServer() {
         typeDefs: `
             type Query {
                 hello: String
+                helloto(name: String): String
                 }
                 `,
         resolvers: {
             Query: {
                 hello: () => 'Hello world!',
+                helloto: (_: any, { name }: any) => `Hello ${name}!`,
             },
         },
     });
 
     await graphqlServer.start();
-    app.use("/graphql", expressMiddleware(graphqlServer)); // a apollo studio opens on localhost:3000/graphql   //only visible in dev mode
+    app.use("/graphql", expressMiddleware(graphqlServer)); // a apollo studio opens on localhost:3000/graphql   visible in dev mode
 
     return app;
 }
