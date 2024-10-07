@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IconType } from 'react-icons';
 import { FaHome, FaSearch, FaBell, FaEnvelope, FaUserFriends, FaUser } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -7,6 +7,7 @@ import { CgCommunity } from 'react-icons/cg';
 import { HiSparkles } from 'react-icons/hi';
 import { IoMdMore } from 'react-icons/io';
 import FeedCard from '@/components/FeedCard';
+import Login from '@/components/Login';
 
 interface SidebarItem {
   icon: IconType;
@@ -44,6 +45,11 @@ const Sidebar: React.FC = () => {
 };
 
 export default function Home() {
+
+  const handleLoginWithGoogle = useCallback((cred: Credential) => {
+    console.log('login');
+  }, [])
+
   return (
     <div className="grid grid-cols-12 h-screen w-screen">
       <div className="col-span-3">
@@ -55,7 +61,9 @@ export default function Home() {
         <FeedCard username={"mohitvdx"} handle={''} date={''} content={''} comments={0} retweets={0} likes={0} views={0} avatarUrl={''} />
 
       </div>
-      <div className="col-span-3"></div>
+      <div className="col-span-3">
+        <Login />
+      </div>
     </div>
   );
 }
