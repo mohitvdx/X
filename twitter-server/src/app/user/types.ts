@@ -6,5 +6,4 @@ type User {
     email: String!
     profileImageURL: String
 }
-
     `;
